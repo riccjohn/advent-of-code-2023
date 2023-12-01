@@ -9,6 +9,17 @@
 		"ghcr.io/devcontainers-contrib/features/prettier:1": {},
 		"ghcr.io/devcontainers-contrib/features/ts-node:1": {},
 		"ghcr.io/devcontainers-contrib/features/typescript:2": {}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"dracula-theme.theme-dracula",
+				"dbaeumer.vscode-eslint",
+				"esbenp.prettier-vscode",
+				"vscodevim.vim",
+				"github.vscode-github-actions"
+			]
+		}
 	}
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
