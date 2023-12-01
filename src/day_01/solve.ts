@@ -1,8 +1,8 @@
 import { readFileSync } from 'fs'
-import { getCalibrationValuesAndSum } from "./day_01";
+import { getCalibrationValuesAndSum } from './day_01'
 
 const solve = (): number => {
-  const input = readFileSync('../input.txt', 'utf-8')
+  const input = readFileSync('./input.txt', 'utf-8')
 
   const lines = input.split('\n')
 

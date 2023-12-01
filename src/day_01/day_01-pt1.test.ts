@@ -22,7 +22,7 @@ describe('getCalibrationValue', () => {
   })
 
   test('given an input with only one number, returns that number twice', () => {
-    // cspell:disable-next-line
+    // spell-checker:disable-next-line
     const input = 'treb7uchet'
 
     const result = getCalibrationValue(input)
@@ -39,7 +39,7 @@ describe('getCalibrationValue', () => {
 
 describe('getAllCalibrationValues', () => {
   test('given an array of inputs, returns array of calibration values', () => {
-    // cspell:disable-next-line
+    // spell-checker:disable-next-line
     const input = ['1abc2', 'pqr3stu8vwx', 'a1b2c3d4e5f', 'treb7uchet']
 
     const result = getAllCalibrationValues(input)
@@ -50,7 +50,7 @@ describe('getAllCalibrationValues', () => {
 
 describe('getCalibrationValuesAndSum', () => {
   test('returns the sum of all calibration values', () => {
-    // cspell:disable-next-line
+    // spell-checker:disable-next-line
     const input = ['1abc2', 'pqr3stu8vwx', 'a1b2c3d4e5f', 'treb7uchet']
 
     const result = getCalibrationValuesAndSum(input)
