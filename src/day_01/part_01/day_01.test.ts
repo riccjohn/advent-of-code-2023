@@ -30,12 +30,10 @@ describe('getCalibrationValue', () => {
     expect(result).toBe(77)
   })
 
-  test('given an input with no numbers, throws an error', () => {
+  test('given an input with no numbers, returns 0', () => {
     const input = 'abcde'
 
-    expect(() => getCalibrationValue(input)).toThrowErrorMatchingInlineSnapshot(
-      `"No numbers found in input"`,
-    )
+    expect(getCalibrationValue(input)).toBe(0)
   })
 })
 
