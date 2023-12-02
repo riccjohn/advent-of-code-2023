@@ -9,6 +9,7 @@ const testDataWithCalibrationValues = [
   { input: '4nineeightseven2', expected: 42 },
   { input: 'zoneight234', expected: 14 },
   { input: '7pqrstsixteen', expected: 76 },
+  { input: 'eightwo', expected: 82 },
   /* spell-checker: enable */
 ]
 
@@ -23,6 +24,7 @@ describe('getCalibrationValue', () => {
     ${testDataWithCalibrationValues[4].input} | ${testDataWithCalibrationValues[4].expected}
     ${testDataWithCalibrationValues[5].input} | ${testDataWithCalibrationValues[5].expected}
     ${testDataWithCalibrationValues[6].input} | ${testDataWithCalibrationValues[6].expected}
+    ${testDataWithCalibrationValues[7].input} | ${testDataWithCalibrationValues[7].expected}
   `(
     // spell-checker: enable
     'given an input of $input, returns $expected',
@@ -45,10 +47,11 @@ describe('getCalibrationValuesAndSum', () => {
       testDataWithCalibrationValues[4].input,
       testDataWithCalibrationValues[5].input,
       testDataWithCalibrationValues[6].input,
+      testDataWithCalibrationValues[7].input,
     ]
 
     const result = getCalibrationValuesAndSum(input)
 
-    expect(result).toBe(281)
+    expect(result).toBe(363)
   })
 })

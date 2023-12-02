@@ -1,26 +1,27 @@
 export const getCalibrationValue = (inputValue: string): number => {
   const numberNameDictionary: { [key: string]: string } = {
-    one: '1',
-    two: '2',
-    three: '3',
-    four: '4',
-    five: '5',
-    six: '6',
-    seven: '7',
-    eight: '8',
-    nine: '9',
+    // spell-checker: disable
+    one: 'o1ne',
+    two: 't2wo',
+    three: 't3hree',
+    four: 'f4our',
+    five: 'f5ive',
+    six: 's6ix',
+    seven: 's7even',
+    eight: 'e8ight',
+    nine: 'n9ine',
+    // spell-checker: enable
   }
 
-  const numberNameRegex = new RegExp(Object.keys(numberNameDictionary).join('|'), 'gm')
-  const numberNameMatches = inputValue.match(numberNameRegex)
-
-  if (numberNameMatches) {
-    numberNameMatches.forEach(match => {
-      inputValue = inputValue.replace(match, numberNameDictionary[match])
+  while (
+    Object.keys(numberNameDictionary).some(key => inputValue.includes(key))
+  ) {
+    Object.keys(numberNameDictionary).forEach(key => {
+      inputValue = inputValue.replace(key, numberNameDictionary[key])
     })
   }
 
-  const numbers = inputValue.trim().match(/\d/gm)
+  const numbers = inputValue.match(/\d/gm)
 
   if (!numbers) {
     return 0
