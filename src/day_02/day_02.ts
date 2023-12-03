@@ -1,12 +1,12 @@
 type Color = 'blue' | 'green' | 'red'
 
-type Set = {
+type GameSet = {
   [key in Color]: number
 }
 
 export interface Game {
   id: number
-  sets: Set[]
+  sets: GameSet[]
 }
 
 export const parseGame = (input: string): Game => {
@@ -26,7 +26,7 @@ export const parseGame = (input: string): Game => {
         acc[color] = Number(occurrances)
 
         return acc
-      }, {} as Set),
+      }, {} as GameSet),
     )
     .map(set => {
       const setKeys = Object.keys(set)
@@ -46,7 +46,7 @@ export const parseGame = (input: string): Game => {
   }
 }
 
-const getMaxValues = (sets: Set[]) => {
+const getMaxValues = (sets: GameSet[]) => {
   return sets.reduce((acc, curr) => {
     const keys = Object.keys(curr) as Color[]
 
@@ -62,7 +62,7 @@ const getMaxValues = (sets: Set[]) => {
   })
 }
 
-export const checkIfPossible = (sets: Set[], bag: Set): boolean => {
+export const checkIfPossible = (sets: GameSet[], bag: GameSet): boolean => {
   const maxValues = getMaxValues(sets)
 
   const possibleColors = (Object.keys(bag) as Color[]).map(color => {
@@ -76,7 +76,10 @@ export const checkIfPossible = (sets: Set[], bag: Set): boolean => {
   return possibleColors.every(value => value === true)
 }
 
-export const getSumOfPossibleGameIds = (games: Game[], bag: Set): number => {
+export const getSumOfPossibleGameIds = (
+  games: Game[],
+  bag: GameSet,
+): number => {
   const gamesWithPossibility = games.map(game => {
     const { id, sets } = game
     const possibility = checkIfPossible(sets, bag)
@@ -86,7 +89,7 @@ export const getSumOfPossibleGameIds = (games: Game[], bag: Set): number => {
     }
   })
 
-  const possibleGames = gamesWithPossibility.filter( game => game.possibile )
+  const possibleGames = gamesWithPossibility.filter(game => game.possibile)
 
   const sum = possibleGames.reduce((acc, curr) => {
     acc += curr.id
