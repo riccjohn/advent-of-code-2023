@@ -98,3 +98,10 @@ export const getSumOfPossibleGameIds = (
 
   return sum
 }
+
+export const getPowerOfMinimumBag = (game: Game): number => {
+  const minimumBagSize = getMaxValues(game.sets)
+  const { red, blue, green } = minimumBagSize
+
+  return red * blue * green
+}

@@ -1,6 +1,7 @@
 import {
   Game,
   checkIfPossible,
+  getPowerOfMinimumBag,
   getSumOfPossibleGameIds,
   parseGame,
 } from './day_02'
@@ -193,4 +194,76 @@ describe('getSumOfPossibleGameIds', () => {
   }
 
   expect(getSumOfPossibleGameIds(input, bag)).toBe(expected)
+})
+
+describe('getPowerOfMinimumBag', () => {
+  const testInputWithAnswers = [
+    {
+      input: {
+        id: 1,
+        sets: [
+          { blue: 3, red: 4, green: 0 },
+          { blue: 6, green: 2, red: 1 },
+          { green: 2, blue: 0, red: 0 },
+        ],
+      },
+      expected: 48,
+    },
+    {
+      input: {
+        id: 2,
+        sets: [
+          { blue: 1, green: 2, red: 0 },
+          { green: 3, blue: 4, red: 1 },
+          { green: 1, blue: 1, red: 0 },
+        ],
+      },
+      expected: 12,
+    },
+    {
+      input: {
+        id: 3,
+        sets: [
+          { green: 8, blue: 6, red: 20 },
+          { blue: 5, red: 4, green: 13 },
+          { green: 5, red: 1, blue: 0 },
+        ],
+      },
+      expected: 1560,
+    },
+    {
+      input: {
+        id: 4,
+        sets: [
+          { green: 1, red: 3, blue: 6 },
+          { green: 3, red: 6, blue: 0 },
+          { green: 3, blue: 15, red: 14 },
+        ],
+      },
+      expected: 630,
+    },
+    {
+      input: {
+        id: 5,
+        sets: [
+          { red: 6, blue: 1, green: 3 },
+          { blue: 2, red: 1, green: 2 },
+        ],
+      },
+      expected: 36,
+    },
+  ]
+
+  test.each`
+    input                            | expected
+    ${testInputWithAnswers[0].input} | ${testInputWithAnswers[0].expected}
+    ${testInputWithAnswers[1].input} | ${testInputWithAnswers[1].expected}
+    ${testInputWithAnswers[2].input} | ${testInputWithAnswers[2].expected}
+    ${testInputWithAnswers[3].input} | ${testInputWithAnswers[3].expected}
+    ${testInputWithAnswers[4].input} | ${testInputWithAnswers[4].expected}
+  `('returns the power of the minimum bag', ({ input, expected }) => {
+    const result = getPowerOfMinimumBag(input)
+
+    expect(result).toBe(expected)
+  })
 })
